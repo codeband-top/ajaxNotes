@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX发送GET请求并传递参数</title>
+</head>
+<body>
+	<ul id="list"></ul>
+
+	<script>
+
+		var listElement = document.getElementById('list');
+
+		//发送请求获取列表数据呈现在页面上
+		//==========================
+
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET','users.php')
+		// 这里仍然是使用URL中的问号参数传递数据
+		xhr.send(null)
+		xhr.onload = function(){
+			var data = JSON.parse(this.responseText);
+			console.log(data);
+			for(var i = 0; i<data.length; i++){
+				var liElement = document.createElement('li')
+				liElement.innerHTML = data[i].name
+				liElement.id = data[i].id
+				listElement.appendChild(liElement)
+				liElement.addEventListener('click',function(){
+					// TODO: 通过AJAX操作获取服务端对应数据的信息
+					// 如何获取当前被点击元素对应数据的id
+					var xhr1 = new XMLHttpRequest()
+					xhr1.open('GET','users.php?id=' + this.id)
+					xhr1.send()
+					xhr1.onreadystatechange = function(){
+						if(this.readyState!==4) return
+						var obj = JSON.parse(this.responseText)
+						alert(obj.age)
+					}
+				})
+			}
+		}
+
+		//给每一个li注册点击事件
+		//因为li是后创建的
+		// for(var i = 0;i < listElement.children.length ; i++){
+		// 	listElement.children[i].addEventListener('click',function(){
+		// 		console.log(11);
+		// 	})
+		// }
+
+	</script>
+</body>
+</html>

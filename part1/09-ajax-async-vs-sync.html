@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		console.log('begin request')
+		var xhr = new XMLHttpRequest()
+		//open方法第三个参数是async可以传入一个布尔值，默认为true即异步
+		xhr.open('GET','time.php',false)//官方已经强烈不建议使用同步，描述它为deprecated
+		xhr.send()
+		console.log('end request')
+	</script>
+	
+
+</body>
+</html>

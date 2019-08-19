@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX请求XML格式的数据</title>
+</head>
+<body>
+	<script>
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET','xml.php')
+		// 这里仍然是使用URL中的问号参数传递数据
+		xhr.send(null)
+		xhr.onreadystatechange = function(){
+			if(this.readyState !== 4) return
+			//this.responseXML专门用于获取服务端返回的XML数据
+			//但是需要服务端响应头中的Content-Type必须是application/xml
+			console.log(this.responseXML.documentElement.children[1].innerHTML)
+
+		}
+
+
+	</script>
+</body>
+</html>
