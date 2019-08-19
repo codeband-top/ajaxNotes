@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同步模式的AJAX</title>
+</head>
+<body>
+	<script>
+		var xhr = new XMLHttpRequest()
+		xhr.open('GET','time.php',false)
+		xhr.send()	
+		console.log(xhr.readyState)
+
+	</script>
+</body>
+</html>

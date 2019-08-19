@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var xhr = new XMLHttpRequest();
+
+		//因为客户端永远不知道服务端何时才能返回我们需要的响应
+		// 所以AJAX API采用事件的机制
+		xhr.onreadystatechange =  function() {
+			// 这个事件并不是只在响应时触发，XHR状态改变就触发
+			// console.log(this.readyState);
+			if(this.readyState !== 4) return;
+			//获取服务端响应的内容
+			console.log(this.responseText)
+
+		}
+
+		xhr.open('GET','time.php')
+
+		//因为响应需要时间，所以无法通过返回值的方式返回响应
+		// var response = xhr.send();
+		// console.log(response);
+		xhr.send();
+
+
+
+	</script>
+</body>
+</html>

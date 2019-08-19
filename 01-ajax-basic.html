@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//设计到ajax操作的页面不能使用文件协议访问
+
+		// XMLHttpRequest AJAX中的X指的就是XML
+		// 以前服务端的响应就是XML形式	，现在一般用json
+		// 1.安装浏览器（用户代理）xhr就类似于浏览器的作用
+		var xhr = new XMLHttpRequest();
+		// 2.打开浏览器 输入网址
+		xhr.open('GET','http://localhost/ajax/time.php');
+		// 3.敲回车键 开始请求
+		xhr.send();
+		// 4.等待响应
+
+		// 5.看结果
+		
+	</script>
+</body>
+</html>
