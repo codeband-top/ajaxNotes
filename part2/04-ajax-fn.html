@@ -49,6 +49,7 @@
 				//console.log(this.responseText);
 				//无法在内部包含的函数中通过return给外部函数的调用返回结果
 				// return this.responseText;
+				// 由于异步模式下 这里的代码最后执行 所以不可能在外部通过返回值的方式返回数据
 				res = this.responseText;
 			}
 			
@@ -56,9 +57,6 @@
 
 			return res;
 		}
-
-
-
 
 		var res1 = ajax('GET','time.php',{ id: 1 });
 		//ajax('GET','test.php');
