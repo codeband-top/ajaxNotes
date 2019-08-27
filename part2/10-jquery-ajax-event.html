@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery全局事件处理函数</title>
+	<style>
+		.loading{
+			display: none;
+			position: fixed;
+		}
+
+	</style>
+	<link rel="stylesheet" href="nprogress.css">
+	<script src="nprogress.js"></script>
+</head>
+<body>
+	<div class="loading">正在玩命加载中...</div>
+	<button id="btn">请求</button>
+	<script src="jquery-3.4.1.min.js"></script>
+	<script>
+
+		$(document).ajaxStart(function(){
+			NProgress.start()
+		})
+		$(document).ajaxStop(function(){
+			NProgress.done()
+		})
+
+		// $(document).ajaxStart(function(){
+		// 	// 只要有ajax请求发生就会执行
+		// 	$('.loading').fadeIn();
+		// 		// 显示加载提示
+		// 		console.log('注意即将要开始请求了');
+		// })
+		// $(document).ajaxStop(function(){
+		// 	// 只要有ajax请求结束就会执行
+		// 	$('.loading').fadeOut();
+		// 		// 结束提示
+		// 		console.log('请求结束了');
+		// })
+
+		$('#btn').on('click',function(){
+			// $.ajax({
+			// 	url: 'time.php'
+			// })
+			$.get('time.php');
+		})
+		//nprogress
+
+	</script>
+</body>
+</html>
