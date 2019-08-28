@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>尝试找到一种可以发送不同源请求的方式</title>
+</head>
+<body>
+	<script>
+		
+		//请求一个不同源的地址实际上就是我们所说的跨域请求
+
+		// 当前页面访问地址：http://day-12.io/12-cross-origin.html
+		// 希望被AJAX的地址：http://locally.uieee.com/categories
+		//
+		// 校验目标：1 能发出去， 2 能收回来
+
+		// img link script iframe
+		//
+		// 1. img
+		// 可以发送不同源地址之间的请求
+		// 无法拿到响应结果 
+		var img = new Image()
+		img.src = 'http://locally.uieee.com/categories'
+
+		// ## 2. link
+		var link = document.createElement('link')
+		link.href= 'http://locally.uieee.com/categories'
+
+	</script>
+</body>
+</html>
