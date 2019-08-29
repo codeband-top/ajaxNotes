@@ -23,9 +23,27 @@
 		img.src = 'http://locally.uieee.com/categories'
 
 		// ## 2. link
+		// 可以发送不同源地址之间的请求
+		// 无法拿到响应结果
 		var link = document.createElement('link')
+		link.rel = 'stylesheet'
 		link.href= 'http://locally.uieee.com/categories'
+		document.body.appendChild(link)
+		// link 真正的定义：链入一个文档，通过 rel 属性申明链入的文档与当前文档之间的关系
 
+		// ## 3. script
+		// 可以发送不同源地址之间的请求
+		// 无法拿到响应结果
+		// 借助于能够作为JS执行
+		var script = document.createElement('script')
+		script.src= 'http://localhost/time2.php'
+		document.body.appendChild(script)//开始发起请求
+
+		// 相当于请求的回调
+		function foo(res){
+			console.log(res)
+		}
+		//console.log(a)
 	</script>
 </body>
 </html>
